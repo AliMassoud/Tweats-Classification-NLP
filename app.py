@@ -1,5 +1,6 @@
 # save this as app.py
 from cgitb import text
+from tempfile import tempdir
 from flask import Flask
 from flask import request, jsonify, json
 from flask_sqlalchemy import SQLAlchemy
@@ -41,7 +42,11 @@ def submit():
     # tweet = Tweet(YourEmail, EmeEmail,Msg)
     # db.session.add(tweet)
     # db.session.commit()
-    return  data
+    return {
+    "YourEmail": YourEmail,
+    "EmeEmail": EmeEmail,
+    "Msg": Msg
+}
 
 
 if __name__ == '__main__':
