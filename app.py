@@ -42,6 +42,7 @@ def submit():
     # tweet = Tweet(YourEmail, EmeEmail,Msg)
     # db.session.add(tweet)
     # db.session.commit()
+    print(data)
     return {
     "YourEmail": YourEmail,
     "EmeEmail": EmeEmail,
