@@ -1,36 +1,30 @@
-# save this as app.py
-from cgitb import text
-from tempfile import tempdir
 from flask import Flask
 from flask import request, jsonify, json
 from flask_sqlalchemy import SQLAlchemy
-import os
-import psycopg2
-
-engine = psycopg2.connect(
-    database="postgres",
-    user="DSPDB",
-    password="PAUcwKtYQ2j0Tt0f16pe",
-    host="dspdb.c7yyz4ccfsai.eu-west-2.rds.amazonaws.com",
-    port='5432'
-)
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://:@'
-SQLALCHEMY_TRACK_MODIFICATIONS = False
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://DSPDB:PAUcwKtYQ2j0Tt0f16pe@dspdb.c7yyz4ccfsai.eu-west-2.rds.amazonaws.com/DSP_Tweeter'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-# dspdb.c7yyz4ccfsai.eu-west-2.rds.amazonaws.com
+
 class Tweet(db.Model):
   __tablename__='Tweets'
   id=db.Column(db.Integer,primary_key=True)
   Email=db.Column(db.String(255))
   Emergency_Email=db.Column(db.String(80))
   Msg=db.Column(db.String(255))
+  Prediction=db.Column(db.String(15))
 
-  def __init__(self,YourEmail,EmeEmail,Msg):
+  def __init__(self,YourEmail,EmeEmail,Msg,Prediction):
     self.Email=YourEmail
     self.Emergency_Email=EmeEmail
     self.Msg=Msg
+    self.Prediction = Prediction
+
+
+def make_predictions():
+    # We add here our model code
+    return 'Danger'
 
 
 @app.route("/Submit", methods=['GET'])
@@ -39,15 +33,16 @@ def submit():
     YourEmail= data['YourEmail']
     EmeEmail=data['EmeEmail']
     Msg=data['Msg']
-    # tweet = Tweet(YourEmail, EmeEmail,Msg)
-    # db.session.add(tweet)
-    # db.session.commit()
-    print(data)
+    Prediction = make_predictions() # Pass my data to the model
+    tweet = Tweet(YourEmail, EmeEmail, Msg, Prediction)
+    db.session.add(tweet)
+    db.session.commit()
     return {
     "YourEmail": YourEmail,
     "EmeEmail": EmeEmail,
-    "Msg": Msg
-}
+    "Msg": Msg,
+    "Prediction": Prediction
+    }
 
 
 if __name__ == '__main__':
