@@ -1,2 +1,4 @@
 Flask
 pip
+flask_sqlalchemy
+psycopg2
