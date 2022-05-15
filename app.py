@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import request, jsonify, json
 from flask_sqlalchemy import SQLAlchemy
+import pandas as pd
+# import airflow
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://DSPDB:PAUcwKtYQ2j0Tt0f16pe@dspdb.c7yyz4ccfsai.eu-west-2.rds.amazonaws.com/DSP_Tweeter'
@@ -44,6 +46,18 @@ def submit():
     "Msg": Msg,
     "Prediction": Prediction
     }
+
+
+@app.route('/SubmitFile', methods=["GET"])
+def index():
+    if request.method == 'GET':
+        saved_file = request.files['data_file']
+        df = pd.read_csv(saved_file)
+        for index, row in df.iterrows():
+            print(row)
+            print(type(row))
+            break
+    return "Hello"
 
 
 if __name__ == '__main__':

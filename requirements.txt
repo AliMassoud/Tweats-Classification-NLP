@@ -2,3 +2,6 @@ Flask
 pip
 flask_sqlalchemy
 psycopg2
+click==7.1.2
+sreamlit
+airflow
