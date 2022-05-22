@@ -51,7 +51,7 @@ def submit():
 @app.route('/SubmitFile', methods=["GET"])
 def index():
     if request.method == 'GET':
-        saved_file = request.files['data_file']
+        saved_file = request.files['file']
         df = pd.read_csv(saved_file)
         for index, row in df.iterrows():
             print(row)

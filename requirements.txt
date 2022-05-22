@@ -3,6 +3,7 @@ pip
 flask_sqlalchemy
 click
 sreamlit
+requests
 airflow
 spacy
 jupyter
