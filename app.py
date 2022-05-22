@@ -2,7 +2,6 @@ from flask import Flask
 from flask import request, jsonify, json
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
-# import airflow
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://DSPDB:PAUcwKtYQ2j0Tt0f16pe@dspdb.c7yyz4ccfsai.eu-west-2.rds.amazonaws.com/DSP_Tweeter'
@@ -26,6 +25,7 @@ class Tweet(db.Model):
 
 def make_predictions():
     # We add here our model code
+    
     return 'Danger'
 
 
