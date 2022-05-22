@@ -6,3 +6,8 @@ sreamlit
 airflow
 spacy
 jupyter
+numpy
+pandas
+sklearn
+flake8
+en-core-web-lg
