@@ -1,7 +1,14 @@
 Flask
 pip
 flask_sqlalchemy
-psycopg2
-click==7.1.2
+click
 sreamlit
+requests
 airflow
+spacy
+jupyter
+numpy
+pandas
+sklearn
+flake8
+en-core-web-lg
