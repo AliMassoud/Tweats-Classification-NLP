@@ -1,6 +1,7 @@
 Flask
 pip
 flask_sqlalchemy
+psycopg2
 click
 sreamlit
 requests

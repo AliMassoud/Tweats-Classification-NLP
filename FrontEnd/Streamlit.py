@@ -32,8 +32,8 @@ st.subheader("Dataset")
 data_file = st.file_uploader("Upload CSV", type=['csv'])
 if st.button("Process"):
     if data_file is not None :
-        files = {"file": data_file.getvalue()}
+        files = {"data_file": data_file.getvalue()}
         res = requests.get(f"http://127.0.0.1:5000/SubmitFile", files=files)
-
+    print(res.json())
 else:
     st.error('dangerous tweet')
