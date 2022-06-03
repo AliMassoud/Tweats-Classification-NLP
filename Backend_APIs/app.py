@@ -1,14 +1,23 @@
+# import imp
+from flask_sqlalchemy import SQLAlchemy
+from Backend_APIs.DB_config import DB_conf
 from flask import Flask
 from flask import request, jsonify, json
-from flask_sqlalchemy import SQLAlchemy
+
 import pandas as pd
 import numpy as np
-import airflow
+import Backend_APIs.DB_config as config
+from Backend_APIs.Services.store_On_DB import store_db_bulk, store_db_single
+
+
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://DSPDB:PAUcwKtYQ2j0Tt0f16pe@dspdb.c7yyz4ccfsai.eu-west-2.rds.amazonaws.com/DSP_Tweeter'
+from Backend_APIs.Services.predictionFunction import predicted_outcome
+DB_conf = config.DB_conf
+app.config['SQLALCHEMY_DATABASE_URI']=f"postgresql://{DB_conf['DB_USERNAME']}:{DB_conf['DB_PASSWORD']}@{DB_conf['DB_URL']}/{DB_conf['DB_NAME']}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
 
 class Tweet(db.Model):
   __tablename__='Tweets'
@@ -25,13 +34,6 @@ class Tweet(db.Model):
     self.Prediction = Prediction
 
 
-def predicted_outcome(df):
-    df1 = pd.DataFrame(df)
-    # We add here our model code
-    df1['Prediction'] = 'Danger'
-    return df1
-
-
 @app.route("/Submit", methods=['GET'])
 def submit():
     data = json.loads(request.data)
@@ -40,8 +42,7 @@ def submit():
     tweet_with_pred = predicted_outcome(my_data) # Pass my data to the model
 
     tweet_db = Tweet(tweet_with_pred['YourEmail'][0], tweet_with_pred['EmeEmail'][0], tweet_with_pred['text'][0], tweet_with_pred['Prediction'][0])
-    db.session.add(tweet_db)
-    db.session.commit()
+    store_db_single(db, tweet_db)
     return {
     "YourEmail": tweet_with_pred['YourEmail'][0],
     "EmeEmail": tweet_with_pred['EmeEmail'][0],
@@ -56,20 +57,20 @@ def index():
         saved_file = request.files['data_file']
         df = pd.read_csv(saved_file)
         g_list = dict()
+        g = []
         result = predicted_outcome(df)
         for i in range(len(result)):
             tweet_db = Tweet(result['YourEmail'][i], result['EmeEmail'][i], result['text'][i], result['Prediction'][i])
-            db.session.add(tweet_db)
-            db.session.commit()
+            g.append(tweet_db)
             g_list[i]= {
                 'YourEmail': result['YourEmail'][i],
                 'EmeEmail': result['EmeEmail'][i],
                 'text': result['text'][i],
                 'Prediction': result['Prediction'][i]
             }
+        store_db_bulk(db, g)
     return g_list
 
 
 if __name__ == '__main__':
-
     app.run(debug=True)

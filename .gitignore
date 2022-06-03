@@ -1,6 +1,5 @@
 .ipynb_checkpoints
 __pycache__
 model_nlp/disaster_tweets/__pycache__
-/DAGs
 /logs
 .idea
