@@ -3,3 +3,4 @@ __pycache__
 model_nlp/disaster_tweets/__pycache__
 /logs
 .idea
+/airflow
