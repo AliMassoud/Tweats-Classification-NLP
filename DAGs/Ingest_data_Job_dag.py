@@ -3,11 +3,12 @@ from airflow.utils.dates import timedelta
 from pendulum import today
 from My_Predict_Job_functions import ingest_file
 import sys
-sys.path.append("/mnt/c/Users/user/Desktop/DSP_Project_APIs/APIs_Flask/Backend_APIs/Services")
+import os
+sys.path.append("../src/Backend_APIs/Others/Services/")
 
-from predictionFunction import predicted_outcome
-from save_output_Files import save_data
-
+from src.Backend_APIs.Others.Services.predictionFunction import predicted_outcome
+from src.Backend_APIs.Others.Services.save_output_Files import save_data
+# src\Backend_APIs\Others\Services\predictionFunction.py
 @dag(
     dag_id="ingest_data_2",
     description="Ingest data from a file the model",
@@ -31,6 +32,7 @@ def ingest_data():
 
     # Task relationships
     data_to_ingest = get_data_to_ingest_from_local_file_task()
+    print(os.getcwd())
     if(type(data_to_ingest) != 'str'):  
         df = predict(data_to_ingest)
         save_data_task(df)

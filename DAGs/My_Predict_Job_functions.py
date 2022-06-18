@@ -3,12 +3,12 @@ import shutil
 import pandas as pd
 
 
-Ingestion_predition_folder = "Data_Ingestion/"
+Ingestion_predition_folder = "Data/Data_Ingestion/"
 #####
 def ingest_file():
-    my_files = os.listdir("Data_Ingestion/")
+    my_files = os.listdir("Data/Data_Ingestion/")
     num_files = 0
-    os.chdir('Data_Ingestion/')
+    os.chdir('Data/Data_Ingestion/')
     if len(my_files) == 0:
         print("Directory is empty")
         return "Directory is empty"

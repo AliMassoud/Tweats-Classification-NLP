@@ -2,8 +2,8 @@
 
 # ingest_file()
 
-from dotenv import load_dotenv, find_dotenv
-import os
-load_dotenv(find_dotenv('.env'))
+# from dotenv import load_dotenv, find_dotenv
+# import os
+# load_dotenv(find_dotenv('.env'))
 
-print(os.getenv('DB_NAME'))
+# print(os.getenv('DB_NAME'))

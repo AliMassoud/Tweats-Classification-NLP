@@ -1,9 +1,8 @@
 import pandas as pd
 
-
 import sys
-sys.path.append("/mnt/c/Users/user/Desktop/DSP_Project_APIs/APIs_Flask/src/model_nlp/disaster_tweets")
-from inference import predict
+sys.path.append("..")
+from model_nlp.inference import predict
 def predicted_outcome(df):
     df1 = pd.DataFrame(df)
     # We added here our model code
