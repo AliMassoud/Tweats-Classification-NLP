@@ -5,7 +5,8 @@ from sklearn.metrics import mean_squared_log_error
 from sklearn.linear_model import LogisticRegression
 import sys
 import os
-from model_nlp.preprocess import *
+from model_nlp import preprocess
+# from model_nlp.preprocess import *
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 def classification_metrics(y_pred, y_test):
@@ -17,11 +18,11 @@ def classification_metrics(y_pred, y_test):
 
 
 def build_model(train_data):
-    X_train, X_test, y_train, y_test = data_set_split(train_data)
-    X_train = X_train.apply(text_normalize)
-    X_test = X_test.apply(text_normalize)
-    X_train_new = vectorizer(X_train)
-    X_test_new = vectorizer(X_test)
+    X_train, X_test, y_train, y_test = preprocess.data_set_split(train_data)
+    X_train = X_train.apply(preprocess.text_normalize)
+    X_test = X_test.apply(preprocess.text_normalize)
+    X_train_new = preprocess.vectorizer(X_train)
+    X_test_new = preprocess.vectorizer(X_test)
 
     log_reg = LogisticRegression()
     log_reg.fit(X_train_new, y_train)

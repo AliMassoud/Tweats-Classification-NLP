@@ -1,18 +1,23 @@
-Flask
-pip
-flask_sqlalchemy
-psycopg2
-click
-sreamlit
-requests
-airflow
-spacy
-jupyter
-numpy
-pandas
-sklearn
-flake8
+Flask==2.1.2
+pip==22.1.2
+flask_sqlalchemy==2.5.1
+psycopg2-binary==2.9.3
+click==8.1.3
+streamlit==1.10.0
+requests==2.28.0
+apache-airflow==2.3.2
+spacy==3.3.1
+jupyter==1.0.0
+numpy==1.23.0
+pandas==1.4.3
+scikit-learn==1.1.1
+flake8==4.0.1
 # en-core-web-lg
-python-dotenv
+python-dotenv==0.20.0
+build==0.8.0
+twine==4.0.1
+# python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps model_nlp
+
+
 
 # python -m spacy download en_core_web_lg
