@@ -12,7 +12,7 @@ numpy
 pandas
 sklearn
 flake8
-en-core-web-lg
+# en-core-web-lg
 python-dotenv
 
-#python -m spacy download en_core_web_lg
+# python -m spacy download en_core_web_lg

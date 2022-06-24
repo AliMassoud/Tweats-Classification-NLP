@@ -1,15 +1,15 @@
 .ipynb_checkpoints
-__pycache__
-model_nlp/disaster_tweets/__pycache__
+_pycache_
+model_nlp/disaster_tweets/_pycache_
 /logs
 .idea
 /airflow
 airflow.cfg
 # Byte-compiled / optimized / DLL files
-__pycache__/
+_pycache_/
 *.py[cod]
 *$py.class
-
+webserver_config.py
 # Distribution / packaging
 .Python
 build/
@@ -41,7 +41,7 @@ instance/
 
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+_pypackages_/
 
 # Environments
 .env
