@@ -1,6 +1,6 @@
 .ipynb_checkpoints
-__pycache__
-model_nlp/disaster_tweets/__pycache__
+_pycache_
+model_nlp/disaster_tweets/_pycache_
 /logs
 .idea
 # Airflow configuration
@@ -26,7 +26,7 @@ airflow-webserver.pid
 standalone_admin_password.txt
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
+_pycache_/
 *.py[cod]
 *$py.class
 webserver_config.py
@@ -61,7 +61,7 @@ instance/
 
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+_pypackages_/
 
 # Environments
 .env
