@@ -1,6 +1,6 @@
 # import imp
 from flask import Flask
-from flask import request, jsonify, json
+from flask import request, json
 import pandas as pd
 import numpy as np
 from Others.Services.predictionFunction import predicted_outcome
@@ -30,7 +30,7 @@ def submit():
 def index():
     if request.method == 'GET':
         saved_file = request.files['data_file']
-        df = pd.read_csv(saved_file)
+        df = pd.read_csv(saved_file, encoding='UTF-8')
         g_list = dict()
         g = []
         result = predicted_outcome(df)
@@ -45,7 +45,6 @@ def index():
             }
         store_db_bulk(g)
     return g_list
-
 
 if __name__ == '__main__':
     init_db()
