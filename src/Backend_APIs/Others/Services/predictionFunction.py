@@ -1,7 +1,7 @@
 import pandas as pd
 
-import sys
-sys.path.append("..")
+# import sys
+# sys.path.append("../../")
 # from model_nlp.inference import predict
 from model_nlp import inference
 def predicted_outcome(df):

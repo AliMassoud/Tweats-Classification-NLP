@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 
 [project]
-name = "model_nlp"
+name = "Backend_APIs"
 version = "0.0.1"
 authors = [
-  { name="Author", email="dmkhitaryan25@gmail.com" },
+  { name="Author", email="ali.massoud136@gmail.com" },
 ]
 description = "packaging the model"
 readme = "README.md"
