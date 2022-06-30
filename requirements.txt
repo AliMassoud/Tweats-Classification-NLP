@@ -16,5 +16,5 @@ flake8==4.0.1
 python-dotenv==0.20.0
 build==0.8.0
 twine==4.0.1
-# python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps model_nlp
+# python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps Backend_packaged_DSP
 # python -m spacy download en_core_web_lg

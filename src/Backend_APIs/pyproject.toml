@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 
 [project]
-name = "Backend_APIs"
+name = "Back_package_DSP2"
 version = "0.0.1"
 authors = [
   { name="Author", email="ali.massoud136@gmail.com" },
 ]
-description = "packaging the model"
+description = "packaging the Backend"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [

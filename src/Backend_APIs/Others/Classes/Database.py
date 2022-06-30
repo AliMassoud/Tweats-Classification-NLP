@@ -26,17 +26,14 @@ def store_db_bulk(rows):
 
 
 def get_all_tweets():
-    print("INSIDE")
     table = Table(
         'Tweets', 
         metadata, 
         autoload=True, 
         autoload_with=engine
     )
-    stmt = select([table.columns])
+    stmt = table.select()
     results = db_session.execute(stmt)
-    for result in results:
-        print(result)
     return results
 
 def printt():
