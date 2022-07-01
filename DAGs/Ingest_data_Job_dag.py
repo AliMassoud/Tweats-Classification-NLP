@@ -4,7 +4,6 @@ from pendulum import today
 import os
 import pandas as pd
 import shutil
-import importlib.util
 from pathlib import Path
 
 @dag(
@@ -32,6 +31,9 @@ def ingest_dag():
                     final_data_path = str(script_dir) + '/Data/ingest_data/' + file
                     temp = pd.read_csv(f'{final_data_path}')
                     # greate Expectations (2 expects)
+                    # COMMENT TO DIANAA
+                    # USE THE SAME TOOLS YOU USED IN THE MODEL TO CLEAN THE TEXT
+                    # YOU WILL USE MY MACHINE
 
                     
                     shutil.move(f"{final_data_path}", f"Data/data_for_dag_predict/{file}")

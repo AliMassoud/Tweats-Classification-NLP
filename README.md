@@ -15,6 +15,4 @@ Twitter has become an important communication channel in the terms of emergency.
 2. For model building and training - `train.py`
 3. For making a prediction - `inference.py`
 
-### PYTHON PACKAGE FOR THE MODEL :mechanical_arm:
-Instead of importing the functions from the source code in the model_nlp folder, we import them from a python package(name of the package _model_nlp_)
 
