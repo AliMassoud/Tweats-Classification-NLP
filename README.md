@@ -15,7 +15,6 @@ model as a service :white_check_mark:
 user interface (filling a form + uploading a file) :white_check_mark:  
 predcitons saved in db :white_check_mark:  
 ingestion job (gets a file checks its content then move it to the prediction_folder to be used by the prediction job) :white_check_mark:  
-allerting system :white_check_mark:  
 monitoring dashboard :white_check_mark: 
 
 ## General Notes:  
@@ -35,7 +34,7 @@ pip install -i https://test.pypi.org/simple/ back-package-dsp2.
 ## Frontend. 
 we used Streamlit to create a form to be filled by users, in addition to the option of uploading a file to make several predictions.  
 we also have a History page to see all the Tweets in our Database.  
-to run the Sreamlit server use go to this directory `src/FrontEnd/` the run the following:  
+to run the Sreamlit server use go to this directory `src/FrontEnd/streamlit/apps/` the run the following:  
 ```
 streamlit run Streamlit.py
 ```
