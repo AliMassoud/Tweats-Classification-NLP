@@ -1,5 +1,5 @@
-# Tweets Classification
-## DANGER TWEETS DETECTION :thinking:
+# Tweats Classification
+## DANGER TWEETS DETECTION:
 ### INTRODUCTION :speech_balloon:
 
 Twitter has become an important communication channel in the terms of emergency. With the help of smartphones people announce an emergency they’re observing in real-time. Therefore, more agencies are interested in monitoring Twitter. It’s not always clear whether the tweets are actually announcing a disaster or not. In this project we build a machine learning model that predicts which tweets are danger and which one’s aren’t.  
@@ -20,7 +20,7 @@ monitoring dashboard :white_check_mark:
 ## General Notes:  
 * We host our postgres Database on AWS RDS.  
 * We used AWS CloudWatch to monitor the Database performance (on of the grafana dashboards is related to that).  
-* We packaged the whole Backend to have more flexibility in imporing services + classes (like the databse class + Tweets class + our model). 
+* We packaged the whole Backend to have more flexibility in imporing services + classes (like the databse class + Tweet class + our model). 
 * to run the project kindly run the following first. 
 ```
 pip install -r requirements.txt
@@ -59,9 +59,9 @@ you can reach this API on the route `/Submit`.
 in case you would like to use **postman** or other API testing tools,you can use this following `JSON` object:  
 ```json
 {
-    "YourEmail": "ali.massoud136@gmail.com",
-    "EmeEmail": "ali.massoud136@gmail.com",
-    "Location": "Paris",
+    "YourEmail": "an email",
+    "EmeEmail": "an email",
+    "Location": "New York",
     "text": "HELPPPP, I am in DANGER!"
 }
 ```
